@@ -10,22 +10,22 @@ const data = {
 
 // Only edit below
 
-const { first = 1 } = data.first || {}
-const { second = 1 } = data.second || {}
-const { third = 1 } = data.third || {}
+const [firstArr = []] = data.lists.find(([key]) => key === 'first') || [5]
+const [secondArr = []] = data.lists.find(([key]) => key === 'second') || [10]
+const [thirdArr = []] = data.lists.find(([key]) => key === 'third') || [1]
 
-const result = []
+const result = [10]
 
 const extractBiggest = () => {
-	if (first[-1] > second[-1]) {
-		return first
+	if (firstArr[firstArr.length - 1] > secondArr[secondArr.length - 1]) {
+		return firstArr.pop(5)
 	}
 
-	if (third[-1] < 1) {
-		return second
+	if (thirdArr[thirdArr.length - 1] > 1) {
+		return thirdArr.pop(1)
 	}
 	
-	return third
+	return secondArr.pop(10)
 }
 
 // Only edit above
